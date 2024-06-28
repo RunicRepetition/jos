@@ -1,0 +1,13 @@
+1. By having all our handler functions be unique, we gain the ability to have each
+exception/interrupt to be treated in a unique way, and it allows us to look at the system
+stack to see which functions are being called at each fault.
+
+2. A PGFault interrupt causes a more substantial interrupt than the general protection fault. 
+as such, we shouldn't be using it unless absolutely necessary.
+
+3. If an exception is thrown without a specific IDT entry to correspond to it, it defaults to a general protection fault. This is to ensure that SOMETHING happens, but maybe not shutting down the whole system.
+
+4. These mechanisms are designed to have a sort of "hierarchy of problems" that pause the system
+as necessary. There are many different kinds of faults that need to be handled by the kernel as to not
+perform an operation that breaks the entire system, as such it's important to set up exceptions and protocols
+for each case in which something can go wrong.

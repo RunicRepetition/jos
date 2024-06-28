@@ -1,0 +1,12 @@
++ ld obj/kern/kernel
++ mk obj/kern/kernel.img
+444544 decimal is 1544200 octal!
+Physical memory: 131072K available, base = 640K, extended = 130432K
+check_page_free_list() succeeded!
+f02ce000
+check_page_alloc() succeeded!
+check_page() succeeded!
+kernel panic on CPU 0 at kern/pmap.c:934: assertion failed: check_va2pa(pgdir, base + KSTKGAP + i) == PADDR(percpu_kstacks[n]) + i
+Welcome to the JOS kernel monitor!
+Type 'help' for a list of commands.
+qemu: terminating on signal 15 from pid 267838
